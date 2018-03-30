@@ -1,0 +1,66 @@
+﻿@model List<proje.Models.Kategoriler>
+@{
+    ViewBag.Title = "FirmaEkle";
+}
+
+<h3>Firma Ekle</h3>
+
+<div class="container">
+
+    @using (Html.BeginForm("FirmaEkle", "Firma",FormMethod.Post))
+    {
+        <div class="form-group">
+            <label class="control-label col-sm-2">Sektör:</label>
+            <div class="col-sm-8">
+                <select class="form-control" name="kategori">
+                    @{
+                        foreach (var item in Model)
+                        {
+                            <option value="@item.kategoriId">@item.kategoriAdi </option>
+                        }
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Firma Adı:</label>
+            <div class="col-sm-8">
+                <input type="text" name="firma" class="form-control form-control" placeholder="Firmanızın adını giriniz...">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="pwd">Adres:</label>
+            <div class="col-sm-8">
+                <textarea class="form-control" name="adres" rows="3" placeholder="Firmanızın adresini giriniz.." required></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="pwd">Telefon:</label>
+            <div class="col-sm-8">
+                <input type="tel" name="telefon" class="form-control form-control" placeholder="(53-)---/--/--">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="pwd">Email:</label>
+            <div class="col-sm-8">
+                <input type="email" name="email" class="form-control form-control" placeholder="email..">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="pwd">Açıklama:</label>
+            <div class="col-sm-8">
+                <textarea class="form-control" name="aciklama" rows="3" placeholder="Firmanız hakkında bir açıklama giriniz" required></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-8">
+                <button type="submit" id="SaveButton" value="Kaydet" class="btn">Kaydet</button>
+                @*@Html.ActionLink("Kaydet","FirmaEkle","Firma", new { @class="btn btn-block btn-lg btn-primary"})*@
+            </div>
+        </div>
+                        }
+</div>
+
+
+
+

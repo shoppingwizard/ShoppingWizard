@@ -1,0 +1,40 @@
+﻿@model proje.Models.Roller
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Sil</h2>
+
+<h6>Rolü silmek istediğinizden emin misiniz?</h6>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.rolStatu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rolStatu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rolAciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rolAciklama)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" /> |
+            @Html.ActionLink("Geri dön", "Index")
+        </div>
+    }
+</div>

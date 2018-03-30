@@ -1,0 +1,51 @@
+﻿@model List<proje.Models.Roller>
+@{
+    ViewBag.Title = "RolVerme";
+}
+
+<h5 class="page-header">Kullanıcıya rol verme</h5>
+
+<div class="container">
+    <h5 class="page-header">Roller</h5>
+
+    @using (Html.BeginForm())
+    {
+        <div class="row">
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="col-sm-3">
+                <select class="form-control">
+                    @{
+                        foreach (var item in Model)
+                        {
+                            <option value="@item.rolId">@item.rolAciklama</option>
+                        }
+                    }
+
+                </select>
+            </div>
+        </div>
+
+
+
+    <h5 class="page-header">Kullanıcılar</h5>
+    <div class="row">
+        <div class="col-sm-3">
+            @Html.TextBox("kullanici","", new { @class = "form-control form-control-lg" })
+            @*<input type="kullanici" class="form-control form-control-lg" placeholder="kullanıcı adı giriniz...">*@
+        </div>
+    </div>
+    <br />
+
+
+
+    <div class="row">
+ 
+            <div class="col-12 col-md-3">
+                <button type="submit" class="btn btn-block btn-lg btn-primary">Kaydet</button>
+            </div>
+        
+    </div>
+    <br />
+}
+</div>
